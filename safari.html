@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavesh Goswami goes on safari</title>
+    <!-- Bootstrap CSS for responsive design -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Basic styling to improve overall look */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light grey background */
+            margin: 20px;
+        }
+
+        .header-title {
+            color: #ffffff;
+            background-color: #007bff; /* Bootstrap primary color */
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: 2px solid #007bff; /* Border color matching theme */
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for elevation */
+            cursor: pointer; /* Pointer to indicate clickability */
+            transition: transform 0.2s; /* Smooth hover effect */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Slightly enlarges the card on hover */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 100px);
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 650px; /* Limit max width for grid */
+        }
+
+        .location img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <!-- Header Section -->
+        <div class="text-center header-title">
+            <h1>Bhavesh Goswami goes on safari</h1>
+        </div>
+
+        <!-- Information Cards -->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card info-card p-3 mb-3" onclick="alert('Click on the locations to find rare animals, watch out for the lion!')">
+                    <p>Click on the locations to find rare animals, watch out for the lion!</p>
+                </div>
+                <div class="card info-card p-3 mb-3" id="locations" onclick="alert('Number of locations checked is zero.')">
+                    <p>Number of locations checked is zero.</p>
+                </div>
+                <div class="card info-card p-3 mb-3" id="score" onclick="alert('Score is zero.')">
+                    <p>Score is zero.</p>
+                </div>
+                <div class="card info-card p-3 mb-3" onclick="alert('Click for help.')">
+                    <p>Click for help.</p>
+                </div>
+                <div class="card info-card p-3 mb-3" id="help" onclick="alert('Help report.')">
+                    <p>Help report</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Field Grid -->
+        <div class="game-grid">
+            <!-- Generating a 6x6 grid with tree images -->
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+            <div class="location"><img src="tree.jpeg" alt="Tree"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
