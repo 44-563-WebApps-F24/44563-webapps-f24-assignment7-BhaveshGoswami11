@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavesh Goswami Speed Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        .display-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .display-box {
+            font-size: 24px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #fff;
+            border-radius: 10px;
+            width: 200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .button {
+            padding: 12px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            background-color: #0056b3;
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 10px;
+            background-color: #ff5722;
+            border-radius: 5px;
+            transition: width 1s linear;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 576px) {
+            .button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .display-box {
+                font-size: 20px;
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bhavesh Goswami Speed Check</h1>
+
+    <div class="display-container">
+        <div class="display-box" id="counter">Count</div>
+        <div class="display-box" id="target">Your time</div>
+        <div class="progress-bar" id="progressBar"></div>
+
+        <div class="button-container">
+            <button class="button" onclick="startTime()">Start Timer</button>
+            <button class="button" onclick="recordTime()">Stop Timer</button>
+        </div>
+    </div>
+
+    <script>
+        let stopTime = undefined;
+        let countdownDuration = 4; // Duration of countdown in seconds
+
+        function recordTime() {
+            stopTime = Date.now();
+            console.log("Stop time recorded at: " + stopTime);
+        }
+
+        function startTime() {
+            stopTime = undefined;
+            document.getElementById("progressBar").style.width = '0';
+
+            for (let i = 0; i <= countdownDuration; i++) {
+                setTimeout(() => {
+                    document.getElementById("counter").innerHTML = "Count: " + (countdownDuration - i);
+                    document.getElementById("progressBar").style.width = ((i / countdownDuration) * 100) + '%';
+                }, i * 1000);
+            }
+
+            // Check the user's timing once countdown reaches zero
+            setTimeout(() => {
+                if (stopTime === undefined) {
+                    document.getElementById("target").innerHTML = "Too Slow";
+                    document.getElementById("target").style.color = "#ff4d4d";
+                } else {
+                    const elapsedTime = Date.now() - stopTime;
+                    document.getElementById("target").innerHTML = "Time was " + elapsedTime + " ms";
+                    document.getElementById("target").style.color = "#4CAF50";
+                }
+            }, (countdownDuration + 1) * 1000);
+        }
+    </script>
+
+</body>
+</html>
