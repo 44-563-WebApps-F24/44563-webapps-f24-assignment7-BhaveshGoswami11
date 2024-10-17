@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavesh Goswami builds list with divs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        .input-container input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        .button-add-end {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .button-add-end:hover {
+            background-color: #218838;
+        }
+
+        .button-add-front {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .button-add-front:hover {
+            background-color: #0056b3;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            min-height: 100px;
+            width: 80%;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .divlist {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hide the existing items */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bhavesh Goswami builds list with divs</h1>
+
+    <div class="input-container">
+        <input type="text" id="itemInput" placeholder="Enter item text">
+        <button class="button button-add-end" onclick="addEnd()">Add End</button>
+        <button class="button button-add-front" onclick="addFront()">Add Front</button>
+    </div>
+
+    <div class="flex-container" id="flexContainer">
+        <!-- Existing divs inside the flex container, hidden by default -->
+        <div class="divlist hidden">Item 1</div>
+        <div class="divlist hidden">Item 2</div>
+        <div class="divlist hidden">Item 3</div>
+    </div>
+
+    <script>
+        // Function to add a new item to the end of the list
+        function addEnd() {
+            const itemText = document.getElementById('itemInput').value;
+            if (itemText.trim() !== '') {
+                const newItem = document.createElement('div');
+                newItem.className = 'divlist';
+                newItem.innerHTML = itemText;
+                document.getElementById('flexContainer').appendChild(newItem);
+                document.getElementById('itemInput').value = ''; // Clear the input
+            }
+        }
+
+        // Function to add a new item to the front of the list
+        function addFront() {
+            const itemText = document.getElementById('itemInput').value;
+            if (itemText.trim() !== '') {
+                const newItem = document.createElement('div');
+                newItem.className = 'divlist';
+                newItem.innerHTML = itemText;
+                const flexContainer = document.getElementById('flexContainer');
+                flexContainer.insertBefore(newItem, flexContainer.firstChild);
+                document.getElementById('itemInput').value = ''; // Clear the input
+            }
+        }
+    </script>
+
+</body>
+</html>
