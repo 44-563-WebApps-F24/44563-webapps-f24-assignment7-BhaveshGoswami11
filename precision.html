@@ -107,7 +107,7 @@
 
     <script>
         let stopTime = undefined;
-        let countdownDuration = 4; // Duration of countdown in seconds
+        let countdownDuration = Math.floor(Math.random() * 9) + 2; // Random countdown between 2 and 10 seconds
 
         function recordTime() {
             stopTime = Date.now();
@@ -117,6 +117,7 @@
         function startTime() {
             stopTime = undefined;
             document.getElementById("progressBar").style.width = '0';
+            document.getElementById("counter").innerHTML = "Count: " + countdownDuration;
 
             for (let i = 0; i <= countdownDuration; i++) {
                 setTimeout(() => {

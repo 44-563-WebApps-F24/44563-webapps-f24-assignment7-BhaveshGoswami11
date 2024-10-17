@@ -60,6 +60,15 @@
             background-color: #0056b3;
         }
 
+        .button-swap {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .button-swap:hover {
+            background-color: #e0a800;
+        }
+
         .flex-container {
             display: flex;
             flex-wrap: wrap;
@@ -81,11 +90,6 @@
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        /* Hide the existing items */
-        .hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -96,13 +100,14 @@
         <input type="text" id="itemInput" placeholder="Enter item text">
         <button class="button button-add-end" onclick="addEnd()">Add End</button>
         <button class="button button-add-front" onclick="addFront()">Add Front</button>
+        <button class="button button-swap" onclick="swapItems()">Swap</button>
     </div>
 
     <div class="flex-container" id="flexContainer">
-        <!-- Existing divs inside the flex container, hidden by default -->
-        <div class="divlist hidden">Item 1</div>
-        <div class="divlist hidden">Item 2</div>
-        <div class="divlist hidden">Item 3</div>
+        <!-- Existing divs inside the flex container -->
+        <div class="divlist">Item 1</div>
+        <div class="divlist">Item 2</div>
+        <div class="divlist">Item 3</div>
     </div>
 
     <script>
@@ -129,6 +134,33 @@
                 flexContainer.insertBefore(newItem, flexContainer.firstChild);
                 document.getElementById('itemInput').value = ''; // Clear the input
             }
+        }
+
+        // Function to swap two random items in the list
+        function swapItems() {
+            const items = document.querySelectorAll('.divlist');
+            const itemCount = items.length;
+            if (itemCount < 2) {
+                alert("Not enough items to swap!");
+                return;
+            }
+
+            const index1 = Math.floor(Math.random() * itemCount);
+            let index2 = Math.floor(Math.random() * itemCount);
+            while (index1 === index2) { // Ensure different indices
+                index2 = Math.floor(Math.random() * itemCount);
+            }
+
+            const item1 = items[index1];
+            const item2 = items[index2];
+
+            // Swap the items visually
+            const tempHTML = item1.innerHTML;
+            item1.innerHTML = item2.innerHTML;
+            item2.innerHTML = tempHTML;
+
+            // Optionally log the swap action
+            console.log(`Swapped "${item1.innerHTML}" with "${item2.innerHTML}"`);
         }
     </script>
 
